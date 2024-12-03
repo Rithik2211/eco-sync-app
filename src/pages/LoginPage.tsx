@@ -10,6 +10,10 @@ const LoginPage = () => {
     console.log('Email sign in');
   };
 
+  const handeChangeInput = (input: string) => {
+    setEmail(input);
+  }
+
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>  
       <View style={styles.container}>
@@ -21,9 +25,13 @@ const LoginPage = () => {
           style={styles.input}
           placeholder="Email"
           value={email}
-          onChangeText={setEmail}
+          onChangeText={handeChangeInput}
           keyboardType="email-address"
           autoCapitalize="none"
+          autoCorrect={false}
+          spellCheck={false}
+          clearButtonMode="while-editing"
+          enablesReturnKeyAutomatically={true}
         />
 
         {/* Email Login Button */}
@@ -49,7 +57,7 @@ const LoginPage = () => {
           style={styles.walletButton}
           onPress={() => {}}
         >
-          <Text style={styles.walletButtonText}>Connect with Metamask</Text>
+          <Text style={styles.buttonText}>Connect with Metamask</Text>
         </TouchableOpacity>
 
         {/* Terms Switch */}
@@ -160,7 +168,8 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 12,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: 'white',
+    backgroundColor: 'black',
     borderRadius: 8,
     alignItems: 'center',
   },
